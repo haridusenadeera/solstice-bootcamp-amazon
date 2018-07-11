@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Shipment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +28,7 @@ public class Shipment {
     private Address shippingAddress;
 
     @OneToMany
-    @JoinColumn(name = "order_line_item_id")
+    @JoinColumn(name = "shipment_id")
     private List<OrderLineItem> orderLineItems;
 
     private Date shippedDate;

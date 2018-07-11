@@ -15,11 +15,10 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "orders")
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long orderNumber;
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
@@ -32,7 +31,7 @@ public class Order {
     private Address shippingAddress;
 
     @OneToMany
-    @JoinColumn(name = "order_line_item_id")
+    @JoinColumn(name = "order_id")
     private List<OrderLineItem> orderLineItems;
 
     private double totalPrice;

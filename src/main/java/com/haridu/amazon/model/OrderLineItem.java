@@ -12,7 +12,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class OrderLineItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,4 +28,8 @@ public class OrderLineItem {
     @ManyToOne
     @JoinColumn(name = "shipment_id")
     private Shipment shipment;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 }

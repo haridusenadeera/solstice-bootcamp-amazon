@@ -1,9 +1,9 @@
 package com.haridu.amazon.repository;
 
-import com.haridu.amazon.model.Account;
+import com.haridu.amazon.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface AccountRepository extends JpaRepository<Account, Long> {
+public interface OrderRepository extends JpaRepository<Order, Long> {
 }

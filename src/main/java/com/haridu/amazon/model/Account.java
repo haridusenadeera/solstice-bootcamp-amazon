@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,4 +21,12 @@ public class Account {
     private String firstName;
     private String lastName;
     private String email;
+
+    @OneToMany
+    @JoinColumn(name = "account_id")
+    private List<Order> orders;
+
+    @OneToMany
+    @JoinColumn(name = "account_id")
+    private List<Shipment> shipments;
 }
