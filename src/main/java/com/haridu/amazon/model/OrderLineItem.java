@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 
@@ -23,6 +24,8 @@ public class OrderLineItem {
 
     private int quantity;
     private double price;
+
+    @Formula("quantity*price")
     private double totalPrice;
 
     @ManyToOne

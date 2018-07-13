@@ -28,5 +28,9 @@ public class Account {
 
     @OneToMany
     @JoinColumn(name = "account_id")
+    private List<Address> addresses;
+
+    @OneToMany
+    @JoinColumn(name = "account_id")
     private List<Shipment> shipments;
 }
